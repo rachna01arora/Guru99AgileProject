@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="3" guice-stage="DEVELOPMENT" verbose="5" name="Failed suite [Suite]" parallel="tests">
+  <test thread-count="3" verbose="5" name="Login(failed)" parallel="tests">
+    <parameter name="applicationName" value="AgileLogin"/>
+    <classes>
+      <class name="agile.projecttestcases.Login">
+        <methods>
+          <include name="logintest"/>
+          <include name="beforeSuite"/>
+          <include name="afterMethod"/>
+          <include name="afterSuite"/>
+          <include name="afterTest"/>
+          <include name="setData"/>
+          <include name="beforeClass"/>
+          <include name="beforeMethod"/>
+        </methods>
+      </class> <!-- agile.projecttestcases.Login -->
+    </classes>
+  </test> <!-- Login(failed) -->
+</suite> <!-- Failed suite [Suite] -->

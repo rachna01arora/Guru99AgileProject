@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite" parallel = "tests" thread-count="3" verbose = "5">
+  
+  <test name="Login">
+   <parameter name="applicationName" value="AgileLogin"></parameter>
+    
+    <classes>
+      <class name="agile.projecttestcases.Login"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
