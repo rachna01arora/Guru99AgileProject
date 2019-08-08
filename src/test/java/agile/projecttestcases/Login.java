@@ -21,13 +21,15 @@ public class Login extends AgileProjectmethods {
 		nodes = "login" + applicationName;
 		category = "Smoke";
 		authors = "Rachna";
+		dataSheetName="test";
 	}
 	
-	@Test
-	public void logintest(){
-		startapp();
+	@Test(dataProvider="fetchData")	
+	public void logintest(String property, String UserID, String Password){
+		startapp(property,UserID, Password);
+
 		closeapp();
 	}
-	
+
 	
 }

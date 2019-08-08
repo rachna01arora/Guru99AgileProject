@@ -46,8 +46,8 @@ public class GenericAppMethods extends Reporter implements WebDriverEventListene
 			prop.load(new FileInputStream(new File("./src/main/resources/config.properties")));
 			Surl = prop.getProperty("url");
 			SDriverpath = prop.getProperty("Driverpath");
-			SUserID = prop.getProperty("UserID");
-			SPassword = prop.getProperty("Password");
+			//SUserID = prop.getProperty("UserID");
+			//SPassword = prop.getProperty("Password");
 				
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -56,9 +56,9 @@ public class GenericAppMethods extends Reporter implements WebDriverEventListene
 		}
 	}
 
-	public void startapp(){
+	public void startapp(String property, String UserID, String Password){
 		try {
-		System.setProperty("webdriver.chrome.driver",SDriverpath );
+		System.setProperty(property,SDriverpath );
 		driver=new ChromeDriver();
 		driver.get(Surl);
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
@@ -67,8 +67,8 @@ public class GenericAppMethods extends Reporter implements WebDriverEventListene
 }       catch (WebDriverException e) {
 	     reportStep("The application launched successfully", "FAIL");
 }
-		driver.findElementByXPath("//td[@align='right'][text()='UserID']/following::td/input[@type='text']").sendKeys(SUserID);
-		driver.findElementByXPath("//td[@align='right'][text()='Password']/following::td/input[@type='password']").sendKeys(SPassword);
+		driver.findElementByXPath("//td[@align='right'][text()='UserID']/following::td/input[@type='text']").sendKeys(UserID);
+		driver.findElementByXPath("//td[@align='right'][text()='Password']/following::td/input[@type='password']").sendKeys(Password);
 	    driver.findElementByXPath("//input[@type='submit' and @name='btnLogin' and @value='LOGIN']").click();
 }
 	

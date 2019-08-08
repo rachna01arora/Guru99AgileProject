@@ -20,7 +20,8 @@ import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 		public String testCaseName, testNodes, testDescription, category, authors,nodes;
 
 		public void startResult() {
-			html = new ExtentHtmlReporter("./reports/Results.html");
+			String timeStamp = new SimpleDateFormat("yyyy.MM.dd.HH.mm.ss").format(new Date());  
+			html = new ExtentHtmlReporter("./reports/Result" + timeStamp + ".html");
 			html.setAppendExisting(true);		
 			extent = new ExtentReports();		
 			extent.attachReporter(html);
@@ -65,11 +66,9 @@ import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 		public void reportStep(String desc, String status) {
 			reportStep(desc, status, true);
 		}
-
 		public void endResult() {
 			extent.flush();
 		}	
-
 		public static void reportRequest(String desc, String status) {
 			
 			MediaEntityModelProvider img = null;

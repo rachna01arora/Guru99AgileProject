@@ -12,11 +12,15 @@ import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.DataProvider;
 
+import agile.utilities.DataInputProvider;
+
 import com.aventstack.extentreports.ExtentTest;
+
 
 
 public class AgileProjectmethods extends GenericAppMethods {
 	public ExtentTest testSuite;
+	public String dataSheetName;
 	
 	
 	@BeforeSuite
@@ -66,5 +70,12 @@ public class AgileProjectmethods extends GenericAppMethods {
 
 	@AfterTest
 	public void afterTest(){
+	}
+	
+	@DataProvider(name="fetchData")
+	public Object[][] getData(){
+		
+		return DataInputProvider.getSheet(dataSheetName);	
+			
 	}
 }

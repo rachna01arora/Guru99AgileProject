@@ -6,7 +6,7 @@
     <classes>
       <class name="agile.projecttestcases.Login">
         <methods>
-          <include name="logintest"/>
+          <include name="logintest" invocation-numbers="0"/>
           <include name="beforeSuite"/>
           <include name="afterMethod"/>
           <include name="afterSuite"/>
